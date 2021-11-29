@@ -9,5 +9,12 @@ router.get('/ver/:id?',controllerUsuarios.listarAllusers);
 router.put('/actualizar/:id',controllerUsuarios.updateuser);
 router.delete('/eliminar/:id',controllerUsuarios.deleteuser);
 
+var controllerPedidos=require('../controllers/controllerPedidos');
+router.get('/pruebap',controllerPedidos.prueba);
+router.post('/crearp',controllerPedidos.savepedido);
+router.get('/verp/:id',controllerPedidos.buscarpedido);
+router.get('/verp/:id?',controllerPedidos.listarAllpedidos);
+router.put('/actualizarp/:id',controllerPedidos.updatepedido);
+router.delete('/eliminarp/:id',controllerPedidos.deletepedido);
 
 module.exports = router;

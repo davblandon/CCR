@@ -1,0 +1,21 @@
+nav{
+  background-color: #8be1ec;
+}
+svg{
+ color:white;
+ margin-left: 30px;
+}
+a{
+  font-size:x-large;
+  position:static;
+  font-weight:bold;
+  font-family: 'Times New Roman';
+  }
+thead{
+  color:black;
+}
+tbody{
+  color:black;
+  font-weight:100;
+}
+
