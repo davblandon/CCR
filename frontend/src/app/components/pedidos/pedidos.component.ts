@@ -11,7 +11,7 @@ import { NgForm } from "@angular/forms";
 })
 export class PedidosComponent implements OnInit {
 
-  PedidosArr: Pedidos[];
+  PedidosArr: Pedidos[] = [];
   selectedPedido: Pedidos = new Pedidos();
 
   constructor(private pedidosService: pedidosService) { }

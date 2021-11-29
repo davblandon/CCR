@@ -10,14 +10,14 @@
   </div>
 </nav>
 <h1 style="text-align: center;color:white;">SERVICIOS</h1>
-<!--div class="container">
+<div class="container">
   <div class="row">
     <div class="col-md-8 mt-4">
       <ul class="list-group">
 
-      <li *ngFor="let carr of carreraArr"
-          class='list-group-item list-group-item-action' [class.active]="carr == selectedCarrera"
-          (click)="editCarrera(carr)"
+      <li *ngFor="let pedido of PedidosArr"
+          class='list-group-item list-group-item-action' [class.active]="pedido == selectedPedido"
+          (click)="editPedido(pedido"
         >
           Carrera: {{carr.nombre}} Escuela: {{carr.escuela}} Duración:  {{carr.duracion}}
       	</li>
