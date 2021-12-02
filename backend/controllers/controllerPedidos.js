@@ -1,6 +1,7 @@
 var mongoose = require("../src/conexDB/conn");
 var Pedido = require("../models/pedidos");
 const Pedidos = require("../models/pedidos");
+const { isValidObjectId } = require("mongoose");
 
 function prueba(req, res) {
     res.status(200).send({
@@ -9,8 +10,15 @@ function prueba(req, res) {
 }
 
 function savepedido(req, res) {
-    var Pedido = new Pedidos(req.body);
-    console.log(Pedido);
+    var data ={
+        descripcion:req.body.descripcion,
+        servicio:req.body.servicio,
+        tipoprenda:req.body.tipoprenda,
+        cantidaduni:req.body.cantidaduni,
+        direccionr:req.body.direccionr,
+        direccione:req.body.direccione
+    }
+    var Pedido = new Pedidos(data);
     Pedido.save((err, result) => {
         if (err) console.log(err);
         res.json(result);

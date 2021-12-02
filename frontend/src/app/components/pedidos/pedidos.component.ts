@@ -49,6 +49,7 @@ export class PedidosComponent implements OnInit {
     this.selectedPedido = pedido;
     this.addPedido(this.selectedPedido)
   }
+
   deletePedido(pedido: Pedidos) {
     if (confirm("Seguro de querer borrarlo?")) {
 
@@ -57,5 +58,6 @@ export class PedidosComponent implements OnInit {
       });
     }
   }
+
 
 }
