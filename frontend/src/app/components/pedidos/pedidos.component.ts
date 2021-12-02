@@ -39,6 +39,7 @@ export class PedidosComponent implements OnInit {
     } else {
       this.pedidosService.postPedido(pedido).subscribe((res) => {
         console.log(pedido);
+        location.reload();
         this.getPedidos();
       });
     }
@@ -51,10 +52,11 @@ export class PedidosComponent implements OnInit {
   }
 
   deletePedido(pedido: Pedidos) {
-    if (confirm("Seguro de querer borrarlo?")) {
+    if (confirm("Seguro de querer CANCELAR el pedido?")) {
 
       this.pedidosService.deletePedido(pedido._id).subscribe((res) => {
         this.getPedidos();
+        location.reload();
       });
     }
   }
