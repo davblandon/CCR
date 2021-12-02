@@ -4,7 +4,8 @@
   "description": "Desarrollo de software( aplicativo web con enfoque en el modelo SPA ). ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "GRUPO 1 - MISION TIC 2022",
   "license": "ISC",
@@ -16,7 +17,7 @@
     "express": "^4.17.1",
     "jwt-simple": "^0.5.6",
     "moment": "^2.29.1",
-    "mongoose": "^6.0.13",
+    "mongoose": "^6.0.14",
     "mongoose-pagination": "^1.0.0"
   },
   "devDependencies": {

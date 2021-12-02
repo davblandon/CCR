@@ -1,5 +1,6 @@
 var mongoose = require("../src/conexDB/conn");
 var Pedido = require("../models/pedidos");
+const Pedidos = require("../models/pedidos");
 
 function prueba(req, res) {
     res.status(200).send({
@@ -8,9 +9,11 @@ function prueba(req, res) {
 }
 
 function savepedido(req, res) {
-    var usuario = new Pedido(req.body);
-    usuario.save((err, result) => {
-        res.status(200).send({ message: result });
+    var Pedido = new Pedidos(req.body);
+    console.log(Pedido);
+    Pedido.save((err, result) => {
+        if (err) console.log(err);
+        res.json(result);
     });
 }
 
@@ -54,7 +57,6 @@ function listarAllpedidos(req, res) {
 }
 
 function updatepedido(req, res) {
-    //var id = mongoose.Types.ObjectId(req.query.productId);
     var id = req.params.id;
     Pedido.findOneAndUpdate({ _id: id }, req.body, { new: true }, function (err, Pedido) {
         if (err)

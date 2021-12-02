@@ -1,15 +1,29 @@
+import { formatDate } from "@angular/common";
+
 export class Pedidos {
   _id:String;
-  nombre:String;
-  escuela:String;
-  universidad:String;
-  duracion:Number;
+  descripcion:String;
+  //fechasolicitud:Date;
+  //horar:Date;
+  servicio:String;
+  tipoprenda:String;
+  cantidaduni:Number;
+  //fechaentrega:Date;
+  //horae:Date;
+  direccionr:String;
+  direccione:String;
 
-  constructor(_id = '', nombre = '', escuela = '', universidad = '', duracion = 0){
+  constructor( _id="",descripcion = '', servicio = '',tipoprenda = '',cantidaduni = 0 ,direccionr = '',direccione = '' ){
       this._id=_id;
-      this.nombre=nombre;
-      this.escuela=escuela;
-      this.universidad=universidad;
-      this.duracion=duracion
+      this.descripcion=descripcion;
+      //this.fechasolicitud=fechasolicitud;
+      //this.horar=horar;
+      this.servicio=servicio;
+      this.tipoprenda=tipoprenda;
+      this.cantidaduni=cantidaduni;
+      //this.fechaentrega=fechaentrega;
+      //this.horae=horae;
+      this.direccionr=direccionr;
+      this.direccione=direccione;
   }
 }

@@ -1,72 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedidos} from "../../models/pedidos"
-import { pedidosService } from '../../services/pedidos.service';
+import { PedidosService } from '../../services/pedidos.service';
 import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
   styleUrls: ['./pedidos.component.css'],
-  providers: [pedidosService]
+  providers: [PedidosService]
 })
 export class PedidosComponent implements OnInit {
 
-  PedidosArr: Pedidos[] = [];
+  PedidosArr: Pedidos[] =[];
   selectedPedido: Pedidos = new Pedidos();
 
-  constructor(private pedidosService: pedidosService) { }
+  constructor(private pedidosService: PedidosService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getPedidos()
-  }
+  };
 
-  resetForm(form?: NgForm) {
-    if (form) {
-      form.reset();
-      // this.carreraService.selectedCarrera = new Carrera();
-      this.selectedPedido = new Pedidos();
-    }
-  }
 
   getPedidos(){
-    this.pedidosService.getPedidos().subscribe({
-      next: (data) => {
+    this.pedidosService.getPedidos().subscribe(
+    (data) => {
         this.PedidosArr = data.result;
-        // this.selectedCarrera = data.result;
         console.log(data)
-      },
-      error: (error) => console.error(error)
-    })
+      }
+    )
   }
 
-  addCarrera(carrera: Pedidos) {
-    console.log(carrera);
-    if (carrera._id) {
-      this.pedidosService.putPedido(carrera).subscribe((res) => {
-        // this.resetForm();
+  addPedido(pedido: Pedidos) {
+    if (pedido._id) {
+      this.pedidosService.putPedido(pedido).subscribe((res) => {
         console.log(res);
         this.getPedidos();
       });
     } else {
-      this.pedidosService.postPedido(carrera).subscribe((res) => {
+      this.pedidosService.postPedido(pedido).subscribe((res) => {
+        console.log(pedido);
         this.getPedidos();
-        // this.resetForm();
       });
     }
   }
 
 
-  editCarrera(carrera: Pedidos) {
-    // this.carreraService.selectedCarrera = carrera;
-    this.selectedPedido = carrera;
-    this.addCarrera(this.selectedPedido)
+  editPedido(pedido: Pedidos) {
+    this.selectedPedido = pedido;
+    this.addPedido(this.selectedPedido)
   }
-  deleteCarrera(carrera: Pedidos) {
-    if (confirm("Seguro de querer borrarla?")) {
+  deletePedido(pedido: Pedidos) {
+    if (confirm("Seguro de querer borrarlo?")) {
 
-      this.pedidosService.deletePedido(carrera._id).subscribe((res) => {
+      this.pedidosService.deletePedido(pedido._id).subscribe((res) => {
         this.getPedidos();
-        // this.resetForm();
       });
     }
   }
