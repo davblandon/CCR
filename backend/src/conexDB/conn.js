@@ -1,5 +1,7 @@
 const mongoose=require('mongoose');
-mongoose.connect("mongodb://localhost:27017/cleanclothes", {
+//importar variable de entorno 
+require('dotenv').config({path:'variables.env'});
+mongoose.connect(process.env.DB_URL, {
 useNewUrlParser: true,
 //useCreateIndex: true,
 useUnifiedTopology: true,
